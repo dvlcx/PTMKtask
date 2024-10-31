@@ -65,6 +65,8 @@ class Program
             reader.Close();
             command.CommandText = "CREATE TABLE employees(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, full_name TEXT NOT NULL, date_of_birth DATE NOT NULL, gender TEXT NOT NULL);";
             command.ExecuteNonQuery();
+            command.CommandText = "CREATE INDEX idx_fullname_gender ON employees (full_name, gender);";
+            command.ExecuteNonQuery();
             Console.WriteLine("table 'employees' created");
         }
     }
@@ -72,7 +74,21 @@ class Program
     private static void InsertDirectly(string fullName, string dateOfBirth, string genderString)
     {
         Gender gender;
-        Enum.TryParse(genderString, out gender);
+        bool successGender = Enum.TryParse(genderString, out gender);
+        if (!successGender)
+        {
+            Console.WriteLine("Incorrect gender");
+            return;
+        }
+        
+        DateOnly dateOfBirthDateOnly;
+        bool successDateOfBirth = DateOnly.TryParse(dateOfBirth, out dateOfBirthDateOnly);
+        if (!successDateOfBirth)
+        {
+            Console.WriteLine("Incorrect date of birth");
+            return;
+        }
+
         var newEmployee = new Employee( fullName, DateOnly.Parse(dateOfBirth), gender);
         using (var connection = new SqliteConnection("Data Source=TaskDatabase.db"))
         {
@@ -82,6 +98,7 @@ class Program
             command.CommandText = $"INSERT INTO employees(full_name, date_of_birth, gender) VALUES('{newEmployee.FullName}', '{newEmployee.DateOfBirth}', '{newEmployee.Gender}');";
             command.ExecuteNonQuery();
             Console.WriteLine("record inserted");
+            return;
         }
     }
 
