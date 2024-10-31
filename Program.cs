@@ -109,7 +109,7 @@ class Program
             connection.Open();
             SqliteCommand command = new SqliteCommand();
             command.Connection = connection;
-            command.CommandText = "SELECT * FROM employees GROUP BY full_name, date_of_birth";
+            command.CommandText = "SELECT * FROM employees GROUP BY full_name, date_of_birth ORDER BY full_name;";
             SqliteDataReader reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -146,7 +146,7 @@ class Program
             connection.Open();
             SqliteCommand command = new SqliteCommand();
             command.Connection = connection;
-            command.CommandText = "SELECT * FROM employees WHERE full_name LIKE 'F%' AND gender = 'Male' ORDER BY full_name;";
+            command.CommandText = "SELECT * FROM employees WHERE full_name LIKE 'F%' AND gender = 'Male';";
             var watch = System.Diagnostics.Stopwatch.StartNew();
             SqliteDataReader reader = command.ExecuteReader();
             watch.Stop();
