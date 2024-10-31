@@ -44,12 +44,15 @@ ___
 ___
 #### 5.  Результат выборки из таблицы по критерию: пол мужской, Фамилия начинается с "F".  Метод: Filter().
 Вот пример роботы до создания индекса:
+
 ![App Screenshot](https://github.com/dvlcx/PTMKtask/blob/master/readme/5.1.png)
 
 Создаём:
+
 ![App Screenshot](https://github.com/dvlcx/PTMKtask/blob/master/readme/5.2.png)
 
 И после: 
+
 ![App Screenshot](https://github.com/dvlcx/PTMKtask/blob/master/readme/5.3.png)
 
 Разница очевидна. Время исполнения действительно уменьшилось. Для оптимизации индекс теперь создаётся сразу после таблицы в методе CreateEmployeesTable.
