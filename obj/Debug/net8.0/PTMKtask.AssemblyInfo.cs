@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PTMKtask")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4469025d4c50b31c6ac545b9de4138aa629e480d")]
 [assembly: System.Reflection.AssemblyProductAttribute("PTMKtask")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PTMKtask")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

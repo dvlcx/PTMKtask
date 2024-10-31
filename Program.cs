@@ -129,7 +129,7 @@ class Program
             connection.Open();
             SqliteCommand command = new SqliteCommand();
             command.Connection = connection;
-            command.CommandText = "SELECT * FROM employees WHERE full_name LIKE 'F%' AND gender = 'Male';";
+            command.CommandText = "SELECT * FROM employees WHERE full_name LIKE 'F%' AND gender = 'Male' ORDER BY full_name;";
             var watch = System.Diagnostics.Stopwatch.StartNew();
             SqliteDataReader reader = command.ExecuteReader();
             watch.Stop();
